@@ -9,6 +9,14 @@
             background: no-repeat lightgray url(images/cliff_ocean.jpg);
             background-size: 1500px;
         }
+        #activities header{
+            background: no-repeat lightgray url(images/runfly.jpg);
+            background-size: 1500px;
+        }
+        #contact header{
+            background: no-repeat lightgray url(images/cliff_rock.jpg);
+            background-size: 1500px;
+        }
         .main-header{
             background-color: rgb(255, 255, 255, 0.8);
             width: 700px;
@@ -120,4 +128,40 @@
         footer #disclaimer .social .fa-instagram {
             background: #125688;
             color: white;
+        }
+        /* Activities */
+        table{
+            width: 1000px;
+            margin: 4em auto 0 auto;
+        }
+        caption{
+            background: #852818;
+            height: 40px;
+            color: #fff;
+            font-size: 1.3em;
+            font-weight: bold;
+            padding-top: 1em;
+        }
+        thead{
+            background: #bde1ff;
+        }
+        tbody{
+            background: #eeffe6;
+            text-align: center;
+        }
+        th, td{
+            width: 255px;
+            height: 75px;
+            vertical-align: middle;
+            border: solid 1px #852010;
+        }
+        th:first-child{
+            width: 125px;
+            height: 50px;
+            background: #4977D1;
+            color: #fff;
+        }
+        td:first-child{
+            font-weight: bold;
+            background: #bde1ff;
         }

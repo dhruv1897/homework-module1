@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <head>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylehomework.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>
 Great Cliff's
     </title>
     <meta charset="utf-8">
 </head>
-<body>
+<body id="activities">
     <div class="container">
-
-        <header>
-            <img src="images/cliff_ocean.jpg" alt="Ocean View Cliff" width="1600" height="564">
+      <header>
             <div class="main-header">
                 <div class="logo">
                     <img src="images/logo.png" alt="Great Cliffs Logo" width="125">
@@ -18,14 +17,17 @@ Great Cliff's
                          Great Cliff's Logo
                     </h3>
                 </div>
-                <nav>
+                <nav class="main-menu">
                     <ul>
                       <li><a href="index.html">Home</a></li>
                       <li><a href="#">Cliff's</a></li>
-                      <li><a href="activities.html">Activities</a></li>
+                      <li class="active"><a href="activities.html">Activities</a></li>
                       <li><a href="contact.html">Contact</a></li>
                     </ul>
                   </nav>
+                  </div>
+                  </header>
+                  <main>
     <div class="container">
         <h1>Activities</h1>
 
@@ -38,9 +40,8 @@ Great Cliff's
 
         <div>
             <title>Activities at the Cliff's</title>
-            <header style="text-align: center;">Activities at the Cliff's</header>
-            <table border="1" style="margin-left: auto;
-            margin-right: auto;">
+            <table>
+                <caption>Activities at the Cliff's</caption>
                 <thead>
                     <tr> 
                         <th>Activity</th>
@@ -88,23 +89,44 @@ Great Cliff's
                     </tr>
                 </tbody>
             </table>
+            </div>
+            </div>
+            </main>
+            <section>
+                <ul id="partners">
+                    <li class="partner">
+                        <img src="images/partner-bustour.png" alt="Partner Bus Tours">
+                    </li>
+                    <li class="partner">
+                        <img src="images/partner-cabinrental.png" alt="Partner Cabin Rental">
+                    </li>
+                    <li class="partner">
+                        <img src="images/partner-campingadv.png" alt="Partner Cabin Adventure">
+                    </li>
+                    <li class="partner">
+                        <img src="images/partner-collegetours.png" alt="Partner College Tours">
+                    </li>
+                    <li class="partner">
+                        <img src="images/partner-rentalbike.png" alt="Partner Bike Rentals">
+                    </li>
+                    <li class="partner">
+                        <img src="images/partner-tourgroup.png" alt="Partner Tour Group">
+                    </li>                        
+                </ul>
+            </section>
             <footer>
                 <div id="nondisclaimer" class="copy">
                 &copy; 2024 :: GreatCliffs.com
                 </div>
-                    <div id="disclaimer">
-                        <div class="social">
-                            <p>
-                                <h3>
-                                    Facebook Image
-                                </h3>
-                                <h3>Instagram Image</h3>
-                                <h3>Twitter Image</h3>
-                            </p>
-                        </div>
-
-
+                <div id="disclaimer">
+                    <div class="social">
+                        <p>
+                            <a href="#" class="fa fa-facebook"></a>
+                            <a href="#" class="fa fa-instagram"></a>
+                            <a href="#" class="fa fa-twitter"></a>
+                        </p>
                     </div>
+                </div>
                  </footer>
         </div>
     </div>
