@@ -165,3 +165,31 @@
             font-weight: bold;
             background: #bde1ff;
         }
+        /* Contact form */
+        span:first-child{
+            font-weight: bold;
+            padding: 2%;
+        }
+        form{
+            border: #852818;
+        }
+        .text{
+            width: 40%;
+            margin: 2px;
+        }
+        legend{
+            font-weight: bold;
+            font-size: 20px;
+            color: #4977D1; 
+        }
+        textarea{
+            width: 40%; 
+            height: 100px;
+        }
+        .button {
+            padding-left: 35%;
+        }
+        input[type="submit"]{
+            color: white;
+            background: #4977D1;
+        }
