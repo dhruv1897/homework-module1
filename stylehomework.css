@@ -17,6 +17,10 @@
             background: no-repeat lightgray url(images/cliff_rock.jpg);
             background-size: 1500px;
         }
+        #cliffs header{
+            background: no-repeat lightgray url(images/forest_cliff.jpg);
+            background-size: 1500px;
+        }
         .main-header{
             background-color: rgb(255, 255, 255, 0.8);
             width: 700px;
@@ -166,6 +170,10 @@
             background: #bde1ff;
         }
         /* Contact form */
+        h1{
+            font: 100; 
+            color: #9ed034;
+        }
         span:first-child{
             font-weight: bold;
             padding: 2%;
@@ -193,3 +201,18 @@
             color: white;
             background: #4977D1;
         }
+        .cliff{
+            background-color: white;   
+        } 
+        .img {
+            width: 500px;
+            height: 300px;
+            margin-right: auto;
+        }
+        .text1 {
+            background: #852b1b !important;
+            color: #fff;
+            padding-right: 30px;
+            font-weight: bold;
+          }        
+        
