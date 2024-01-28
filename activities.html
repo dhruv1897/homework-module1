@@ -94,7 +94,7 @@ Great Cliff's
             </main>
             <section>
                 <ul id="partners">
-                    <li class="partner">
+                    <!-- <li class="partner">
                         <img src="images/partner-bustour.png" alt="Partner Bus Tours">
                     </li>
                     <li class="partner">
@@ -111,7 +111,7 @@ Great Cliff's
                     </li>
                     <li class="partner">
                         <img src="images/partner-tourgroup.png" alt="Partner Tour Group">
-                    </li>                        
+                    </li>                         -->
                 </ul>
             </section>
             <footer>
@@ -130,5 +130,23 @@ Great Cliff's
                  </footer>
         </div>
     </div>
+
+    <script>
+        var photos = [];
+      var fileNames = [];
+      var imageList = [];
+      var image;
+      var openList = "<li class='partner' id='photos'>";
+      var closeList = "</li>";
+      var imageNames = ["partner-bustour","partner-cabinrental", "partner-campingadv",
+       "partner-collegetours","partner-rentalbike","partner-tourgroup"];
+      for (var i = 0; i < 6; i++) {
+    fileNames.push(imageNames[i]);
+    photos.push("<img src='images/" + fileNames[i] + ".png'>");
+    image = openList + photos[i] + closeList;
+    imageList.push(image);
+  }
+      document.getElementById("partners").innerHTML = imageList;
+    </script>
 </body>
 </html>
