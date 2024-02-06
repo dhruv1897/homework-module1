@@ -10,7 +10,13 @@ $(document).ready(function() {
         }
     });
 
-     
+     // Disable selection for "Not available" cells and heading/title cells
+     $('table thead th, table tbody td:first-child').on('click', function(e) {
+        e.preventDefault();
+    });
+
+    // Change cursor to hand on selectable cells
+    $('table tbody td').not(':first-child').css('cursor', 'pointer');
 
 
 });
