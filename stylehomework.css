@@ -228,5 +228,9 @@
           }
           #clock {
             color: #f8f8f9;
-          }        
+          }
+          table tbody td.selected {
+            background-color: #3fce13;
+            border: 1px solid #ccc;
+        }        
         
