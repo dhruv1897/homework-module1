@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <head>
+     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    /> 
     <link rel="stylesheet" href="stylehomework.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -12,22 +18,42 @@ Great Cliff's
 <body id="activities">
     <div class="container">
       <header>
-            <div class="main-header">
-                <div class="logo">
-                    <img src="images/logo.png" alt="Great Cliffs Logo" width="125">
-                    <h3>
-                         Great Cliff's Logo
-                    </h3>
-                </div>
-                <nav class="main-menu">
-                    <ul>
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="cliffs.html">Cliff's</a></li>
-                      <li class="active"><a href="activities.html">Activities</a></li>
-                      <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                  </nav>
-                  </div>
+            <nav class="navbar navbar-expand-xl main-header">
+          <div class="container-fluid">
+            <div class="logo">
+              <img src="images/logo.png" alt="Great Cliffs Logo" width="125" />
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav main-menu flex-column">
+                <ul>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="cliffs.html">Cliffs</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="activities.html">Activities</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
                   </header>
                   <main>
     <div class="container">
@@ -91,7 +117,24 @@ Great Cliff's
                     </tr>
                 </tbody>
             </table>
-            
+
+            <div class="modal fade" id="selectedActivitiesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Selected Activities</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="selectedActivitiesContent">
+                        <!-- Selected activities will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
             <div id="displaySelected">
                 <div id="result">
                     <h4>My Selected activities to inquire:</h4>
@@ -145,21 +188,66 @@ Great Cliff's
     </div>
 
     <script>
-        var photos = [];
-      var fileNames = [];
-      var imageList = [];
-      var image;
-      var openList = "<li class='partner' id='photos'>";
-      var closeList = "</li>";
-      var imageNames = ["partner-bustour","partner-cabinrental", "partner-campingadv",
-       "partner-collegetours","partner-rentalbike","partner-tourgroup"];
-      for (var i = 0; i < 6; i++) {
-    fileNames.push(imageNames[i]);
-    photos.push("<img src='images/" + fileNames[i] + ".png'>");
-    image = openList + photos[i] + closeList;
-    imageList.push(image);
-  }
-      document.getElementById("partners").innerHTML = imageList;
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectedActivities = [];
+
+            // Function to update modal content
+            function updateModalContent() {
+                var modalContent = document.getElementById('selectedActivitiesContent');
+                modalContent.innerHTML = '';
+
+                if (selectedActivities.length > 0) {
+                    var list = document.createElement('ul');
+                    selectedActivities.forEach(function (activity) {
+                        var listItem = document.createElement('li');
+                        listItem.textContent = activity;
+                        list.appendChild(listItem);
+                    });
+                    modalContent.appendChild(list);
+                } else {
+                    modalContent.textContent = 'No activities selected.';
+                }
+            }
+
+            // Event listener for table row clicks
+            var table = document.getElementById('activitiesTable');
+            table.addEventListener('click', function (event) {
+                if (event.target.tagName === 'TD' && event.target.parentElement.rowIndex > 0) {
+                    var activityName = event.target.textContent;
+                    if (!selectedActivities.includes(activityName)) {
+                        selectedActivities.push(activityName);
+                        updateModalContent();
+                        // Optional: Open the modal automatically
+                        $('#selectedActivitiesModal').modal('show');
+                    }
+                }
+            });
+
+            // Your existing code for dynamically generating partner images
+            var photos = [];
+            var fileNames = [];
+            var imageList = [];
+            var image;
+            var openList = "<li class='partner' id='photos'>";
+            var closeList = "</li>";
+            var imageNames = ["partner-bustour", "partner-cabinrental", "partner-campingadv", "partner-collegetours", "partner-rentalbike", "partner-tourgroup"];
+            for (var i = 0; i < 6; i++) {
+                fileNames.push(imageNames[i]);
+                photos.push("<img src='images/" + fileNames[i] + ".png'>");
+                image = openList + photos[i] + closeList;
+                imageList.push(image);
+            }
+            document.getElementById("partners").innerHTML = imageList;
+        });
     </script>
+    <!--  -->
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+
+
 </body>
 </html>
